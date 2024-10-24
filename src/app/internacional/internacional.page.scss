@@ -1,0 +1,18 @@
+.responsive-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .responsive-card img {
+    width: 100%; /* Imagen ocupará el ancho completo del contenedor */
+    max-height: 200px; /* Limita la altura máxima de la imagen */
+    object-fit: cover; /* Mantiene las proporciones de la imagen */
+  }
+  
+  ion-card-content {
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+  

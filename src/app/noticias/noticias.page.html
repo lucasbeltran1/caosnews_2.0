@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" [routerLink]="['/home']" shape="round">Volver</ion-button>
+
+    <ion-title>Internacional</ion-title>
+
+    <ion-buttons slot="end">
+       <ion-button [routerLink]="['/login2']" style="display: flex; align-items: center; height: 100%;">
+        Login
+      </ion-button>
+      <ion-avatar slot="end" style="height: 40px; width: 40px; margin-left: 10px;">
+        <img src="assets/img/avatar.jpg" alt="avatar" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Menú lateral de Categorías -->
+<ion-menu side="start" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Categorías</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/home3">Naturaleza</ion-item>
+      <ion-item routerLink="/animation">Política</ion-item>
+      <ion-item routerLink="/deportes">Deportes</ion-item>
+      <ion-item routerLink="/cine">Cine</ion-item>
+      <ion-item routerLink="/internacional">Internacional</ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" id="main-content">
+  <!-- Contenido Principal -->
+  <h1>Últimas Noticias</h1>
+
+  <!-- Tarjetas de Noticias -->
+  <ion-card>
+    <img src="assets/img/noticia_destacada1.jpg" alt="Noticia 1" />
+    <ion-card-header>
+      <ion-card-title>El sistema frontal que mantendrá a Chile alerta en Fiestas Patrias: ya tiene hora y fecha de inicio</ion-card-title>
+      <ion-card-subtitle>Publicado el 4 de agosto de 2024</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      El meteorólogo de Mega, Jaime Leyton, anunció que hubo modificaciones en el pronóstico del clima para la semana de Fiestas Patrias: “Hasta hace dos días la probabilidad de precipitaciones era hasta la región del Maule, pero el sistema cambió”.
+
+Según su pronóstico, el 19 de septiembre “va a llover desde el interior de la región de Valparaíso hasta el interior de la región de O’Higgins y parte de la costa de Valparaíso”.
+    </ion-card-content>
+    <ion-button expand="block" fill="outline">Leer más</ion-button>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/noticia_destacada2.jpg" alt="Noticia 2" />
+    <ion-card-header>
+      <ion-card-title>¿Qué significan los diferentes colores de las patentes de vehículos en Chile?</ion-card-title>
+      <ion-card-subtitle>Publicado el 3 de agosto de 2024</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Algo que deben tener todos los vehículos que circulan por las calles de Chile, es la Placa Patente Única (PPU), la cual se otorga cuando los conductores inscriben un automóvil en el Registro de Vehículos Motorizados del Registro Civil.
+
+En nuestro país desde el año 2007 que las patentes de los vehículos tienen cuatro letras y dos dígitos. Esta debe figurar tanto en su parte delantera como también en su parte trasera.
+    </ion-card-content>
+    <ion-button expand="block" fill="outline">Leer más</ion-button>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer de Ejemplo</ion-title>
+  </ion-toolbar>
+</ion-footer>

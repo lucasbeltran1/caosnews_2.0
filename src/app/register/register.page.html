@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" [routerLink]="['/home']" shape="round">Volver</ion-button>
+
+    <ion-title>Registrar</ion-title>
+
+    <ion-buttons slot="end">
+      <!-- Remueve los estilos en línea y añade una clase -->
+      <ion-button [routerLink]="['/login2']" class="custom-login-button">
+        Login
+      </ion-button>
+
+      <!-- Remueve los estilos en línea y añade una clase -->
+      <ion-avatar slot="end" class="custom-avatar">
+        <img src="assets/img/avatar.jpg" alt="avatar" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register-container">
+    <ion-card class="register-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Crear Cuenta</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">Por favor, llena los campos</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form (ngSubmit)="registerForm.valid && onRegister()" [formGroup]="registerForm">
+
+          <!-- Nombre -->
+          <ion-item>
+            <ion-label position="floating">Nombre Completo</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid">
+            El nombre es requerido.
+          </ion-text>
+
+          <!-- Correo Electrónico -->
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+            Por favor, ingrese un correo válido.
+          </ion-text>
+
+          <!-- Contraseña -->
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+            La contraseña debe tener al menos 6 caracteres.
+          </ion-text>
+          <ion-text color="danger" *ngIf="!passwordHasLetter">
+            La contraseña debe contener al menos una letra.
+          </ion-text>
+
+          <!-- Confirmar Contraseña -->
+          <ion-item>
+            <ion-label position="floating">Confirmar Contraseña</ion-label>
+            <ion-input type="password" formControlName="confirmPassword"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="passwordMismatch">
+            Las contraseñas no coinciden.
+          </ion-text>
+
+          <!-- Género -->
+          <ion-list>
+            <ion-item>
+              <ion-label>Género</ion-label>
+              <ion-select placeholder="Seleccione uno">
+                <ion-select-option value="hombre">Hombre</ion-select-option>
+                <ion-select-option value="mujer">Mujer</ion-select-option>
+                <ion-select-option value="otro">Otro</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <!-- Botón Registrar -->
+          <ion-button expand="block" class="register-button" type="submit" [disabled]="!registerForm.valid">Registrar</ion-button>
+
+        </form>
+
+        <ion-text class="ion-text-center" color="medium">
+          <p>¿Ya tienes cuenta? <a [routerLink]="['/login2']">Inicia sesión</a></p>
+        </ion-text>
+
+        <!-- Checkbox -->
+        <div class="checkbox-container">
+          <ion-checkbox></ion-checkbox>
+          <span>Estoy de acuerdo con los <a href="#" (click)="$event.stopPropagation()"> términos y condiciones</a></span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- Footer -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario para crear nuevos datos -->
+  <form [formGroup]="dataForm" (ngSubmit)="createData()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Edad</ion-label>
+      <ion-input formControlName="age" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Teléfono</ion-label>
+      <ion-input formControlName="phone"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="!dataForm.valid">Crear</ion-button>
+  </form>
+
+  <ion-list>
+    <!-- Mostrar todos los datos almacenados -->
+    <ion-item *ngFor="let data of dataList">
+      <ion-label>
+        <h2>{{ data.name }}</h2>
+        <p>Edad: {{ data.age }} - Teléfono: {{ data.phone }}</p>
+      </ion-label>
+      <ion-button color="danger" (click)="deleteData(data.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

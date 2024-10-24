@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario para guardar los datos -->
+  <form [formGroup]="dataForm" (ngSubmit)="saveData()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name" placeholder="Ingrese su nombre" title="Nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input formControlName="phone" placeholder="Ingrese su teléfono" title="Teléfono"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">RUT</ion-label>
+      <ion-input formControlName="rut" placeholder="Ingrese su RUT" title="RUT"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input formControlName="age" placeholder="Ingrese su edad" title="Edad" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Sexo</ion-label>
+      <ion-select formControlName="sexo" placeholder="Seleccione su sexo" title="Sexo">
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="femenino">Femenino</ion-select-option>
+        <ion-select-option value="otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="!dataForm.valid">
+      Guardar Datos
+    </ion-button>
+  </form>
+
+  <!-- Botón para mostrar los datos almacenados -->
+  <ion-button expand="block" (click)="showStoredData()">
+    Mostrar Datos Almacenados
+  </ion-button>
+
+  <!-- Botones globales para modificar, eliminar y subir imagen solo si hay un usuario seleccionado -->
+  <ion-grid *ngIf="storedData.length > 0 && selectedUser">
+    <ion-row>
+      <ion-col size="12">
+        <ion-button color="primary" (click)="editRow(selectedUser)" size="small" *ngIf="!selectedUser.isEditing">Modificar</ion-button>
+        <ion-button color="success" (click)="saveRowData(selectedUser)" size="small" *ngIf="selectedUser.isEditing">Guardar Cambios</ion-button>
+        <ion-button color="danger" (click)="confirmDelete(selectedUser.rut)" size="small">Eliminar</ion-button>
+        <ion-button color="tertiary" size="small">
+          <label>
+            Subir Imagen
+            <input type="file" (change)="uploadImage($event, selectedUser.id)" hidden />
+          </label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Tabla para mostrar los datos almacenados con checkbox de selección -->
+  <ion-grid *ngIf="storedData.length > 0">
+    <ion-row>
+      <ion-col size="1"><strong>Seleccionar</strong></ion-col>
+      <ion-col><strong>Nombre</strong></ion-col>
+      <ion-col><strong>RUT</strong></ion-col>
+      <ion-col><strong>Edad</strong></ion-col>
+      <ion-col><strong>Sexo</strong></ion-col>
+      <ion-col><strong>Teléfono</strong></ion-col>
+      <ion-col><strong>Descargar Imagen</strong></ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let data of storedData">
+      <ion-col size="1">
+        <!-- Checkbox para seleccionar un usuario -->
+        <ion-checkbox [(ngModel)]="data.isSelected" (ionChange)="onSelectUser(data)"></ion-checkbox>
+      </ion-col>
+
+      <ion-col>
+        <ion-input [(ngModel)]="data.name" *ngIf="data.isEditing" placeholder="Nombre"></ion-input>
+        <span *ngIf="!data.isEditing">{{ data.name }}</span>
+      </ion-col>
+
+      <ion-col>
+        <span>{{ data.rut }}</span> <!-- RUT no editable -->
+      </ion-col>
+
+      <ion-col>
+        <ion-input [(ngModel)]="data.age" *ngIf="data.isEditing" placeholder="Edad" type="number"></ion-input>
+        <span *ngIf="!data.isEditing">{{ data.age }}</span>
+      </ion-col>
+
+      <ion-col>
+        <ion-select [(ngModel)]="data.sexo" *ngIf="data.isEditing" placeholder="Sexo">
+          <ion-select-option value="masculino">Masculino</ion-select-option>
+          <ion-select-option value="femenino">Femenino</ion-select-option>
+          <ion-select-option value="otro">Otro</ion-select-option>
+        </ion-select>
+        <span *ngIf="!data.isEditing">{{ data.sexo }}</span>
+      </ion-col>
+
+      <ion-col>
+        <ion-input [(ngModel)]="data.phone" *ngIf="data.isEditing" placeholder="Teléfono"></ion-input>
+        <span *ngIf="!data.isEditing">{{ data.phone }}</span>
+      </ion-col>
+
+      <!-- Botón de descargar imagen -->
+      <ion-col>
+        <ion-button color="success" *ngIf="data['imageUrl']" (click)="downloadFile(data.imageUrl)" size="small">
+          Descargar Imagen
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

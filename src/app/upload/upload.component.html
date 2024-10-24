@@ -1,0 +1,9 @@
+<div>
+  <h3>Subir archivo a Firebase Storage</h3>
+
+  <!-- Añadir una etiqueta accesible para el input de archivo -->
+  <label for="file-upload">Seleccionar archivo</label>
+  <input id="file-upload" type="file" (change)="uploadFile($event)" />
+
+  <p *ngIf="uploadProgress">{{ uploadProgress }}% completado</p>
+</div>

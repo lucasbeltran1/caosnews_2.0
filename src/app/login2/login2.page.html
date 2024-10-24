@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" [routerLink]="['/home']" shape="round">Volver</ion-button>
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/login2']">
+        Login
+      </ion-button>
+      <ion-avatar slot="end">
+        <img src="assets/img/avatar.jpg" alt="avatar" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Bienvenido</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">Por favor, inicia sesión</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" class="login-button" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</ion-button>
+        </form>
+
+        <ion-button expand="block" class="logout-button" color="danger" (click)="logout()">Cerrar Sesión</ion-button>
+
+        <ion-text class="ion-text-center" color="medium">
+          <p>¿No tienes cuenta? <a [routerLink]="['/register']">Regístrate</a></p>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

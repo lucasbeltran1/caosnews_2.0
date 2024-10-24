@@ -1,0 +1,44 @@
+.uploaded-image {
+  width: 100px;
+  height: auto;
+  display: block; /* Asegura que la imagen esté alineada correctamente */
+  margin: 10px auto; /* Centra la imagen horizontalmente y agrega margen */
+}
+
+/* Para los botones de acción */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
+
+  ion-button {
+    flex: 1; /* Asegura que los botones se adapten bien en diferentes tamaños de pantalla */
+    min-width: 100px; /* Asegura un tamaño mínimo para los botones */
+  }
+}
+
+/* Estilo de la tabla para responsividad */
+ion-grid {
+  ion-row {
+    ion-col {
+      text-align: center; /* Centra el contenido en cada columna */
+    }
+
+    ion-content {
+      ion-item {
+        margin-bottom: 15px;
+      }
+
+      ion-progress-bar {
+        margin-top: 10px;
+      }
+    }
+
+    /* Para pantallas pequeñas */
+    @media (max-width: 768px) {
+      ion-col {
+        font-size: 14px; /* Ajusta el tamaño de fuente en pantallas pequeñas */
+      }
+    }
+  }
+}

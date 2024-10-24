@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" [routerLink]="['/home']" shape="round">Volver</ion-button>
+
+    <ion-title>Politica</ion-title>
+
+    <ion-buttons slot="end">
+       <ion-button [routerLink]="['/login2']" style="display: flex; align-items: center; height: 100%;">
+        Login
+      </ion-button>
+      <ion-avatar slot="end" style="height: 40px; width: 40px; margin-left: 10px;">
+        <img src="assets/img/avatar.jpg" alt="avatar" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" id="main-content">
+  <!-- Aquí iría el contenido principal -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ionic</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ionic</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button (click)="play()">Play</ion-button>
+  <ion-button (click)="pause()">Pause</ion-button>
+  <ion-button (click)="stop()">Stop</ion-button>
+
+  <ion-card>
+    <img src="assets/img/politica1.jpg" alt="Imagen 1" class="center-image"/>
+    <ion-card-content></ion-card-content>
+  </ion-card>
+  
+
+<ion-card>
+  <ion-card-content class="custom-content">
+    <h5 class="custom-title">Boric arremete contra "miserables" dichos de Mañalich sobre embarazos de Vallejo y Cariola: "Es una violenta falta de respeto</h5>
+  </ion-card-content>
+</ion-card>
+
+
+<ion-card>
+  <ion-card-content>El presidente repudió públicamente las declaraciones del exministro de Salud; quien, en una reciente entrevista, sugirió que podría haber una estrategia política tras el embarazo simultáneo de ambas figuras del PC. "Hay que guardar energía para una próxima oportunidad y que eso hace que este sea un momento oportuno para tener una guagua", analizó.
+
+    Las declaraciones de Jaime Mañalich en torno a los embarazos simultáneos de Camila Vallejo y Karol Cariola han generado gran repercusión en la esfera pública.
+    
+    El propio presidente Gabriel Boric se refirió al respecto en una publicación en la red social X (anteriormente Twitter) y llegó a referirse a los dichos de quien fuera dos veces exministro de Salud como “lo más miserable” que ha visto “en mucho tiempo en política”.
+    
+    Y en esa misma, quiso aclarar que ni la ministra secretaria de Gobierno ni la presidenta de la Cámara de Diputados “se prestarían para algo así”.
+    
+    Además, calificó como una “violenta falta de respeto” por parte de Mañalich el “especular sobre las opciones, tiempos y motivos de una mujer”.
+    
+    Lee también: “Los embarazos de ellas no son accidentales”: Mañalich sugiere que gestación simultánea de Vallejo y Cariola estaría vinculada a estrategias políticas
+    
+    Finalizando, hizo un llamado a condenar los dichos del médico de 70 años –que tuvieron lugar durante una entrevista con BioBioChile publicada la mañana de este sábado– desde todos los sectores.
+    
+    “Ojalá haya una condena transversal de la derecha (y de la sociedad entera) a esta estupidez“.</ion-card-content>
+</ion-card>
+
+
+
+

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" [routerLink]="['/home']" shape="round">Volver</ion-button>
+
+    <ion-title>Naturaleza</ion-title>
+
+    <ion-buttons slot="end">
+       <ion-button [routerLink]="['/login2']" style="display: flex; align-items: center; height: 100%;">
+        Login
+      </ion-button>
+      <ion-avatar slot="end" style="height: 40px; width: 40px; margin-left: 10px;">
+        <img src="assets/img/avatar.jpg" alt="avatar" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1>Animal Facts</h1>
+
+  <h2>Rhinoceros</h2>
+  <img
+    alt="rhino standing near grass"
+    src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+  />
+  <p>
+    The rhinoceros gets its name from one of its most notable features: its horns. The word rhinoceros comes from the
+    Greek words rhino meaning “nose” and ceros meaning “horn.”
+  </p>
+
+  <h2>Sea Turtle</h2>
+  <img
+    alt="brown sea turtle in water"
+    src="https://images.unsplash.com/photo-1573551089778-46a7abc39d9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+  />
+  <p>
+    Sea turtles are characterized by a large, streamlined shell and non-retractile head and limbs.
+  </p>
+
+  <h2>Giraffe</h2>
+  <img
+    alt="giraffe sticking its tongue out"
+    src="https://images.unsplash.com/photo-1577114995803-d8ce0e2b4aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
+  />
+  <p>
+    Giraffes are known for their long, tall appearance. They have a small hump on their back like a camel and have a
+    spotted pattern similar to that of a leopard.
+  </p>
+
+  <h2>Elephant</h2>
+  <img
+    alt="two grey elephants on grass plains during sunset"
+    src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fGVufDB8fGVufDB8fGVufDB8fGVufDB8"
+  />
+  <p>
+    Elephants are the largest existing land animal, with massive bodies, large ears, and long trunks.
+  </p>
+
+  <h2>Dolphin</h2>
+  <img
+    alt="black and white dolphin in water"
+    src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fGVufDB8fGVufDB8"
+  />
+  <p>
+    Dolphins range in color depending on the species, from white, pearl, and pink to darker shades of brown, gray, blue,
+    and black.
+  </p>
+
+  <!-- Botón para volver a Home -->
+  <div style="text-align: center; margin-top: 30px;">
+    <ion-button style="width: 10%;" color="primary" [routerLink]="['/home']">Volver a Home</ion-button>
+  </div>
+</ion-content>
